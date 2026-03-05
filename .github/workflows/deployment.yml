@@ -1,4 +1,4 @@
-name: Build, Scan, and Push Docker Image in Google Cloud in google cloud gke
+name: Build, Scan, and Push Docker Image in Google Cloud in google cloud 
 
 on:
   push:
