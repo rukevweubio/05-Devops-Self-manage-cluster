@@ -1,4 +1,4 @@
-name: Build, Scan, and Push Docker Image in Google Cloud
+name: Build, Scan, and Push Docker Image in Google Cloud in google cloud gke
 
 on:
   push:
@@ -101,6 +101,11 @@ jobs:
         run: |
           docker tag "$DOCKER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG" \
           "${GCP_REGION}-docker.pkg.dev/$GCP_PROJECT_ID/$GCP_REPO/$IMAGE_NAME:$IMAGE_TAG"
+
+
+      - name: Configure Docker for Artifact Registry
+        run: |
+          gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
 
       - name: Push to Artifact Registry
         run: |
