@@ -92,9 +92,9 @@ jobs:
 
       - name: Set up GCP credentials
         run: |
-            echo "${{ secrets.GCP_SA_KEY }}" > "$HOME/gcp-key.json"
-            gcloud auth activate-service-account "github-ci-sa@ubioworo-project.iam.gserviceaccount.com "--key-file="$HOME/gcp-key.json"
-
+          echo "${{ secrets.GCP_SA_KEY }}" > "$HOME/gcp-key.json"
+          gcloud auth activate-service-account "github-ci-sa@ubioworo-project.iam.gserviceaccount.com" --key-file="$HOME/gcp-key.json"
+      
       - name: Configure Docker auth
         run: |
           gcloud auth configure-docker "${GCP_REGION}-docker.pkg.dev" --quiet
